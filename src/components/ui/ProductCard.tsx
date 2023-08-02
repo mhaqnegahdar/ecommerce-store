@@ -2,6 +2,7 @@
 
 // Hooks / Packages
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Components
 import IconButton from "@/components/ui/IconButton";
@@ -14,8 +15,13 @@ import { ProductCardProps } from "@/types/props";
 import { Expand, ShoppingCart } from "lucide-react";
 
 const ProductCard = ({ data }: ProductCardProps) => {
+  const router = useRouter();
+
   return (
-    <article className="group bg-white cursor-pointer rounded-xl border p-3 space-y-4">
+    <article
+      onClick={() => router.push(`/product/${data.id}`)}
+      className="group bg-white cursor-pointer rounded-xl border p-3 space-y-4"
+    >
       {/* Images & Actions */}
       <figure className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
