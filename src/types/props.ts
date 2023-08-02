@@ -1,5 +1,6 @@
-import { Category, Billboard, Product } from "@/types/data";
+import { Category, Billboard, Product, Image } from "@/types/data";
 import { MouseEventHandler } from "react";
+import SingleProduct from "./../app/(routes)/product/[productId]/page";
 // Cpmponents
 type NavBarProps = {
   data: Category[];
@@ -28,9 +29,28 @@ type CurrencyProps = {
   value?: number | string;
 };
 
+type GalleryProps = {
+  images: Image[];
+};
+
+type GalleryTabProps = {
+  image: Image;
+};
+
+type InfoProps = {
+  data: Product;
+};
+
 // Layouts
 type ContainerProps = {
   children: React.ReactNode;
+};
+
+// Pages
+type SingleProductProps = {
+  params: {
+    productId: string;
+  };
 };
 
 export type {
@@ -41,4 +61,8 @@ export type {
   ProductCardProps,
   IconButtonProps,
   CurrencyProps,
+  SingleProductProps,
+  GalleryProps,
+  GalleryTabProps,
+  InfoProps,
 };
