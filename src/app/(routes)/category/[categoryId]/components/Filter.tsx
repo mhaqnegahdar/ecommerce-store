@@ -18,16 +18,16 @@ const Filter = ({ valueKey, name, data }: FilterProps) => {
   // Actions
   //   On Filter Click
   const onClick = (id: string) => {
-    const currentUrl = qs.parse(searchParams.toString());
+    const currentSearchParams = qs.parse(searchParams.toString());
 
     // Add new Filters to current url
     const query = {
-      ...currentUrl,
+      ...currentSearchParams,
       [valueKey]: id,
     };
 
     // Remove filter if already selected
-    if (currentUrl[valueKey] === id) {
+    if (currentSearchParams[valueKey] === id) {
       query[valueKey] = null;
     }
 
