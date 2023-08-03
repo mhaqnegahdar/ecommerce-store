@@ -41,6 +41,10 @@ type InfoProps = {
   data: Product;
 };
 
+type SummaryProps = {
+  items: Product[];
+};
+
 type FilterProps = {
   data: (Size | Color)[];
   valueKey: string;
@@ -96,4 +100,5 @@ export type {
   FilterProps,
   MobileFiltersProps,
   ModalProps,
+  SummaryProps,
 };

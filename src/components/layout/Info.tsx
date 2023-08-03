@@ -1,5 +1,9 @@
 "use client";
 
+// Hooks / Packages
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/cart/cartSlice";
+
 // Components
 import Currency from "@/components/ui/Currency";
 import Button from "@/components/ui/Button";
@@ -11,6 +15,8 @@ import { ShoppingCart } from "lucide-react";
 import { InfoProps } from "@/types/props";
 
 const Info = ({ data }: InfoProps) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div>
       {/* Title & Price */}
@@ -39,7 +45,10 @@ const Info = ({ data }: InfoProps) => {
       </div>
       {/* Cart Button */}
       <div className="mt-10 flex items-center gap-x-3">
-        <Button className="flex items-center gap-x-2">
+        <Button
+          onClick={() => dispatch(addToCart({ item: data }))}
+          className="flex items-center gap-x-2"
+        >
           Add To Cart <ShoppingCart />{" "}
         </Button>
       </div>

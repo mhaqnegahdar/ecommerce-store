@@ -3,8 +3,9 @@
 // Hooks / Packages
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { onOpen } from "@/redux/modal/productModalSlice";
+import { addToCart } from "@/redux/cart/cartSlice";
 
 // Components
 import IconButton from "@/components/ui/IconButton";
@@ -27,6 +28,12 @@ const ProductCard = ({ data }: ProductCardProps) => {
     e.stopPropagation();
 
     dispatch(onOpen({ product: data }));
+  };
+
+  const onAddToCart: MouseEventHandler<HTMLButtonElement> = e => {
+    e.stopPropagation();
+
+    dispatch(addToCart({ item: data }));
   };
 
   return (
@@ -52,7 +59,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
             />
             {/* Add to cart */}
             <IconButton
-              onClick={() => {}}
+              onClick={onAddToCart}
               icon={<ShoppingCart size={20} />}
               className="text-gray-600"
             />
