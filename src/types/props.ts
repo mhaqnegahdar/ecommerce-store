@@ -52,6 +52,12 @@ type MobileFiltersProps = {
   sizes: Size[];
 };
 
+type ModalProps = {
+  open: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+};
+
 // Layouts
 type ContainerProps = {
   children: React.ReactNode;
@@ -89,4 +95,5 @@ export type {
   CategoryPageProps,
   FilterProps,
   MobileFiltersProps,
+  ModalProps,
 };

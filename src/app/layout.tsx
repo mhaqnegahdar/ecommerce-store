@@ -6,6 +6,8 @@ const urbanist = Urbanist({ subsets: ["latin"] });
 // Components
 import Footer from "@/components/layout/footer/Footer";
 import Header from "@/components/layout/header/Header";
+import InnerProviders from "@/components/providers/InnerProviders";
+import OuterProviders from "@/components/providers/OuterProviders";
 
 // Types
 import { ContainerProps } from "@/types/props";
@@ -17,12 +19,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: ContainerProps) {
   return (
-    <html lang="en">
-      <body className={urbanist.className} suppressHydrationWarning={true}>
-        <Header />
-        {children}
-        <Footer />{" "}
-      </body>
-    </html>
+    <OuterProviders>
+      <html lang="en">
+        <body className={urbanist.className} suppressHydrationWarning={true}>
+          <Header />
+          {children}
+          <Footer /> <InnerProviders />
+        </body>
+      </html>
+    </OuterProviders>
   );
 }

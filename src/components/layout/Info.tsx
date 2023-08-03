@@ -25,7 +25,7 @@ const Info = ({ data }: InfoProps) => {
       {/* Info */}
       <div className="flex flex-col gap-y-6">
         <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Size:</h3>
+          <h3 className="font-semibold text-black">Color:</h3>
           <p
             className="w-6 h-6 rounded-full border-collapse border-gray-600"
             style={{ backgroundColor: data.color.value }}
@@ -33,7 +33,7 @@ const Info = ({ data }: InfoProps) => {
         </div>
 
         <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Color:</h3>
+          <h3 className="font-semibold text-black">Size:</h3>
           <p>{data.size.name}</p>
         </div>
       </div>
