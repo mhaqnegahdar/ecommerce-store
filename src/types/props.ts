@@ -1,4 +1,4 @@
-import { Category, Billboard, Product, Image } from "@/types/data";
+import { Category, Billboard, Product, Image, Size, Color } from "@/types/data";
 import { MouseEventHandler } from "react";
 import SingleProduct from "./../app/(routes)/product/[productId]/page";
 // Cpmponents
@@ -41,6 +41,17 @@ type InfoProps = {
   data: Product;
 };
 
+type FilterProps = {
+  data: (Size | Color)[];
+  valueKey: string;
+  name: string;
+};
+
+type MobileFiltersProps = {
+  colors: Color[];
+  sizes: Size[];
+};
+
 // Layouts
 type ContainerProps = {
   children: React.ReactNode;
@@ -50,6 +61,16 @@ type ContainerProps = {
 type SingleProductProps = {
   params: {
     productId: string;
+  };
+};
+
+type CategoryPageProps = {
+  params: {
+    categoryId: string;
+  };
+  searchParams: {
+    colorId: string;
+    sizeId: string;
   };
 };
 
@@ -65,4 +86,7 @@ export type {
   GalleryProps,
   GalleryTabProps,
   InfoProps,
+  CategoryPageProps,
+  FilterProps,
+  MobileFiltersProps,
 };
