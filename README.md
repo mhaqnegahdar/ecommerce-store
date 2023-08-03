@@ -66,4 +66,4 @@ npm run vercel-build
 
 ## Screenshots
 
-![Cover](./public/cover.png)
+![Cover](./public/cover.webp)

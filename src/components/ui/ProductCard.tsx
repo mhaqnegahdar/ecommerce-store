@@ -3,6 +3,8 @@
 // Hooks / Packages
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/redux/hooks";
+import { onOpen } from "@/redux/modal/productModalSlice";
 
 // Components
 import IconButton from "@/components/ui/IconButton";
@@ -13,9 +15,19 @@ import { ProductCardProps } from "@/types/props";
 
 // Icons
 import { Expand, ShoppingCart } from "lucide-react";
+import { MouseEventHandler } from "react";
 
 const ProductCard = ({ data }: ProductCardProps) => {
   const router = useRouter();
+
+  const dispatch = useAppDispatch();
+
+  // Actions
+  const onModalOpen: MouseEventHandler<HTMLButtonElement> = e => {
+    e.stopPropagation();
+
+    dispatch(onOpen({ product: data }));
+  };
 
   return (
     <article
@@ -32,11 +44,13 @@ const ProductCard = ({ data }: ProductCardProps) => {
         />
         <div className="opacity-0 group-hover:opacity-100 absolute bottom-5 w-full px-6 transition">
           <div className="flex gap-x-6 justify-center">
+            {/* Modal */}
             <IconButton
-              onClick={() => {}}
+              onClick={onModalOpen}
               icon={<Expand size={20} />}
               className="text-gray-600"
             />
+            {/* Add to cart */}
             <IconButton
               onClick={() => {}}
               icon={<ShoppingCart size={20} />}

@@ -2,9 +2,9 @@
 
 // Hooks/ Packages
 import { useState, useEffect } from "react";
+import ProductModal from "@/components/layout/modals/ProductModal";
 
 // Components
-import Footer from "../layout/footer/Footer";
 
 const ModalProvider = () => {
   const [mounted, setMounted] = useState(false);
@@ -19,7 +19,7 @@ const ModalProvider = () => {
 
   return (
     <>
-      <Footer />
+      <ProductModal />
     </>
   );
 };
