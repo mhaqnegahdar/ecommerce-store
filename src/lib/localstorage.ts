@@ -14,7 +14,10 @@ export const getLocalStorage = (name: string) => {
   if (data) {
     return JSON.parse(data);
   } else {
-    localStorage.setItem(name, JSON.stringify([]));
+    // prevent build error
+    if (typeof window !== "undefined") {
+      localStorage.setItem(name, JSON.stringify([]));
+    }
     return [];
   }
 };
