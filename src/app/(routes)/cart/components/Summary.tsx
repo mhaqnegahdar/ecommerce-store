@@ -35,12 +35,17 @@ const Summary = ({ items }: SummaryProps) => {
 
   // Actions
   const onCheckout = async () => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      { productIds: items.map(item => item.id) }
-    );
-
-    window.location = response.data.url;
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+        productIds: items.map(item => item.id),
+      })
+      .then(result => {
+        window.location = result.data.url;
+      })
+      .catch(error => {
+        toast.error("Something went wrong!");
+        console.log(error);
+      });
   };
 
   const totalPrice = items.reduce((total, item) => {
