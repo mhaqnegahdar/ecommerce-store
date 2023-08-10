@@ -2,7 +2,7 @@
 
 This is a practical **Ecommerce Store** project using [Next.js](https://nextjs.org/) latest features bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Explore the E-commerce [demo](https://maxjn-ecommerce.vercel.app/) and its Admin [demo](https://maxjn-ecommerce-admin.vercel.app/) for better understanding'.
+Explore the E-commerce [demo](https://maxjn-ecommerce-store.vercel.app/) and its Admin [demo](https://maxjn-ecommerce-admin.vercel.app/) for better understanding'.
 
 You can also take a look at the project's dashboard [repo](https://github.com/maxjn/ecommerce-admin) if you want.
 
@@ -50,10 +50,6 @@ Starting a development instance of the app
 # Install Dependencies
 npm install
 
-# Connect to PlanetScale and Push Prisma
-npx prisma generate
-npx prisma db push
-
 # Start the app
 npm run dev
 ```
@@ -61,7 +57,7 @@ npm run dev
 ###### deployment command on vercel
 
 ```shell
-npm run vercel-build
+npm run build
 ```
 
 ## Screenshots
